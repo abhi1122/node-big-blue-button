@@ -1,11 +1,34 @@
 # nodejs-bigbluebutton
+======================
 
 ## Install
 
 ```
-$ npm install --save 
+$ npm install nodejs-bigbluebutton --save 
+```
+### Get BigBlueButton config details
+Display the current security salt for the BigBlueButton API.
+
+```
+$ bbb-conf --secret
 ```
 
+
+### Usage
+```js
+var bbb = require('nodejs-bigbluebutton');
+
+bbb.salt = '';//Add Your salt key
+bbb.url = ''; //Add Your Url
+```
+
+### Check 
+
+```js
+bbb.create(data, function (response) {
+console.log(response);
+});
+```
 
 ### Create meeting on BBB
 
@@ -41,7 +64,7 @@ data = {
     };
 
 bbb.create(data, function (response) {
-        res.send(response);
+        console.log(response);
 });
 ```
 
@@ -65,7 +88,7 @@ data = {
 
 
 bbb.join(data, function (response) {
-res.send(response);
+console.log(response);
 }); 
 ```
 if you want to join as moderator use moderator password else use attendee password
@@ -80,7 +103,7 @@ data = {
     }
 
 bbb.running(data, function (response) {
-res.send(response);
+console.log(response);
 }); 
 ```
         
@@ -95,7 +118,7 @@ data = {
     }
 
 bbb.getMeetingInfo(data, function (response) {
-res.send(response);
+console.log(response);
 }); 
 ```
 
@@ -110,7 +133,7 @@ data = {
     }
 
 bbb.getRecordings(data, function (response) {
-res.send(response);
+console.log(response);
 });
 ```
 
@@ -127,7 +150,7 @@ data = {
     }
 
 bbb.publishRecordings(data, function (response) {
-res.send(response);
+console.log(response);
 });
 ```
 
@@ -143,7 +166,7 @@ data = {
 
 
 bbb.deleteRecordings(data, function (response) {
-        res.send(response);
+        console.log(response);
 });
 ```
 
@@ -167,7 +190,7 @@ data = {
 
 
     bbb.updateRecordings(data, function (response) {
-        res.send(response);
+        console.log(response);
     });
 ```
 
@@ -187,6 +210,12 @@ data = {
 
 
     bbb.end(data, function (response) {
-        res.send(response);
+        console.log(response);
     });
 ```
+###BigBlueButton APIs
+<http://docs.bigbluebutton.org/dev/api.html>
+
+
+
+###Thanks
